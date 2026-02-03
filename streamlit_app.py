@@ -35,7 +35,18 @@ st.bar_chart(df.set_index("項目"))
 
 # --- コメント ---
 st.subheader("💡 節約アドバイス")
+
+# 節水コメント
 if shower_time > 15:
-    st.warning("シャワー時間を5分短縮すると約60L節水できます！")
+    st.warning("🚿 シャワー時間を5分短縮すると約60L節水できます！")
 else:
-    st.success("節水できています！その調子です👍")
+    st.success("🚿 シャワーはしっかり節水できています！")
+
+# 節電コメント
+if ac_time > 5:
+    st.warning("❄️ エアコンの使用時間が長めです。設定温度を1℃調整すると節電につながります。")
+elif light_time > 8:
+    st.info("💡 照明の使用時間がやや長めです。使わない部屋は消灯を意識しましょう。")
+else:
+    st.success("⚡ 電気の使い方はとてもエコです！その調子です👍")
+
