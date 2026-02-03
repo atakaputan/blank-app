@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="Ecoログ", layout="centered")
-st.title("🌱 Ecoログ：節電・節水可視化アプリ")
+st.title("節電・節水可視化アプリ")
 
 st.write("日常の使用量を入力してください")
 
