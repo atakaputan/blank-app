@@ -1,19 +1,99 @@
-# 🎈 Blank app template
+# 🌱 Ecoログ（節電・節水可視化アプリ）
 
-A simple Streamlit app template for you to modify!
+Ecoログは、日常生活における **電力使用量** と **水使用量** を簡単に入力・可視化し、  
+節電・節水への意識向上を目的とした Web アプリケーションです。
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+Streamlit を用いて開発し、利用データは Supabase（クラウドデータベース）に保存されます。
 
-### How to run it on your own machine
+---
 
-1. Install the requirements
+## 🔗 アプリ試用URL
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+以下のURLから、実際にアプリを試すことができます。
 
-2. Run the app
+👉 **https://blank-app-hu3vy109hgj.streamlit.app/**
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+（※ Streamlit Cloud 上で公開）
+
+---
+
+## 🎯 開発目的
+
+日常生活において電気や水の使用量は把握しづらく、  
+節約を意識していても行動改善につながりにくいという課題があります。
+
+本アプリでは、使用量を数値とグラフで可視化することで、  
+利用者が自身の行動を振り返り、節電・節水を意識するきっかけを提供します。
+
+---
+
+## 🛠 主な機能
+
+### 1. 使用量の入力
+以下の項目をスライダー操作で直感的に入力できます。
+
+- エアコン使用時間（時間）
+- 照明使用時間（時間）
+- シャワー使用時間（分）
+
+---
+
+### 2. 使用量の自動計算
+入力された値をもとに、以下を自動で計算します。
+
+- 電力使用量（kWh）
+- 水使用量（L）
+
+※ 換算値は一般的な目安をもとにした仮定値です。
+
+---
+
+### 3. データの保存（Supabase）
+- 入力データは Supabase のテーブルに保存されます
+- アプリを再起動してもデータは保持されます
+
+---
+
+### 4. 過去データの可視化
+- 保存されたデータを日付順に取得
+- 電力使用量・水使用量をグラフで表示
+
+---
+
+### 5. 節電・節水アドバイス表示
+使用状況に応じて、以下のようなコメントを動的に表示します。
+
+- エアコン使用時間が長い場合の節電アドバイス
+- シャワー時間が長い場合の節水アドバイス
+
+---
+
+## 🧑‍💻 使用技術
+
+- **Python**
+- **Streamlit**（WebアプリUI）
+- **Supabase**（クラウドデータベース）
+- **pandas**（データ処理）
+
+---
+
+## 📌 特徴・工夫点
+
+- ローカルDB（SQLite等）ではなく、クラウドDB（Supabase）を利用
+- APIキーは Streamlit の secrets 機能を用いて安全に管理
+- 操作が簡単で、数値変化がすぐ分かるUI設計
+
+---
+
+## 🚀 今後の改良案
+
+- ユーザーごとのデータ管理機能
+- 月別・週別の集計表示
+- CO₂排出量への換算表示
+- 節電スコアのランキング化
+
+---
+
+## 📄 ライセンス
+
+This project is for educational purposes.
