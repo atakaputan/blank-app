@@ -1,8 +1,15 @@
+from supabase import create_client
+import streamlit as st
+
+url = st.secrets["SUPABASE_URL"]
+key = st.secrets["SUPABASE_KEY"]
+supabase = create_client(url, key)
+
 import streamlit as st
 import pandas as pd
 
 st.set_page_config(page_title="Ecoログ", layout="centered")
-st.title("節電・節水可視化アプリ")
+st.title("🌱 Ecoログ:節電・節水可視化アプリ")
 
 st.write("日常の使用量を入力してください")
 
@@ -50,3 +57,12 @@ elif light_time > 8:
 else:
     st.success("⚡ 電気の使い方はとてもエコです！その調子です👍")
 
+if st.button("保存"):
+    supabase.table("eco_logs").insert({
+        "date": str(today),
+        "ac_time": ac_time,
+        "light_time": light_time,
+        "shower_time": shower_time,
+        "total_kwh": total_kwh,
+        "water_l": water_l
+    }).execute()
