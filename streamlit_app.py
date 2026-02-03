@@ -1,3 +1,6 @@
+import streamlit as st
+st.write(st.secrets)
+
 from supabase import create_client
 import streamlit as st
 
